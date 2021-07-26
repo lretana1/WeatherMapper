@@ -1,0 +1,7 @@
+.Jumbotron{
+    background-image: url("../pic/weather.jpg");
+    background-position: bottom;
+}
+h1{
+    color: white;
+}

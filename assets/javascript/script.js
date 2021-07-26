@@ -9,15 +9,15 @@ Weather();
 
 // This function displays the city entered by the user into the DOM
 function renderCities(){
-    $("#cityList").empty();
-    $("#cityInput").val("");
+    $("#cities").empty();
+    $("#city").val("");
     
     for (i=0; i<cityList.length; i++){
         var a = $("<a>");
         a.addClass("list-group-item list-group-item-action list-group-item-primary city");
         a.attr("data-name", cityList[i]);
         a.text(cityList[i]);
-        $("#cityList").prepend(a);
+        $("#cities").prepend(a);
     } 
 }
 
@@ -54,3 +54,26 @@ function storeCurrentCity() {
 
     localStorage.setItem("currentCity", JSON.stringify(cityname));
 }
+
+// on click btn for search
+$("#citybtn").on("click", function(event){
+     event.preventDefault();
+ 
+     cityname = $("#city").val().trim();
+     if(cityname === ""){
+         alert("Enter a city")
+ 
+     }else if (cityList.length >= 5){  
+         cityList.shift();
+         cityList.push(cityname);
+ 
+     }else{
+     cityList.push(cityname);
+     }
+     storeCurrentCity();
+     storeCityArray();
+     renderCities();
+     displayWeather();
+     displayFiveDayForecast();
+ });
+ 
