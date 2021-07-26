@@ -1,7 +1,14 @@
-.Jumbotron{
+body{
+    background-color:gainsboro;
+}
+.jumbotron{
     background-image: url("../pic/weather.jpg");
     background-position: bottom;
 }
 h1{
     color: white;
+}
+input, textarea{
+    background-color:#666;
+    color: #FFF;
 }
